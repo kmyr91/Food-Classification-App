@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Food Classification</h2>
+
+<form action="/predict" method="post" enctype="multipart/form-data">
+  Select image to upload:
+  <input type="file" name="image" id="image">
+  <input type="submit" value="Upload Image" name="submit">
+</form>
+
+<div id="result"></div>
+
+<script>
+  const form = document.querySelector('form');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(form);
+    fetch('/predict', { method: 'POST', body: formData })
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('#result').textContent = data;
+      });
+  });
+</script>
+
+</body>
+</html>

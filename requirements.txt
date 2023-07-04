@@ -1,0 +1,5 @@
+tensorflow==2.10
+tensorflow-io==0.24.0
+Pillow
+numpy
+tensorflow_datasets
